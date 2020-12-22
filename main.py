@@ -1,8 +1,8 @@
 # import pygame and some key presses
-import pygame
 import random
-import pygame.mixer
 
+import pygame
+import pygame.mixer
 from pygame.locals import (
     K_LEFT,
     K_RIGHT,
@@ -71,6 +71,7 @@ woosh = pygame.mixer.Sound('assets/woosh.mp3')
 pygame.mixer.music.load('assets/numb.mp3')
 music_playing = False
 
+
 def player(x, y):
     screen.blit(playerImg, (x, y))
 
@@ -102,10 +103,11 @@ game_over_font = pygame.font.Font('assets/comicbd.ttf', 72)
 
 def game_over():
     game_over_text = font.render("GAME OVER", True, (0, 0, 0))
-    kill_count = font.render("you killed " + str(score_value)+ " little rascals", True, (0, 0, 0))
+    kill_count = font.render("you killed " + str(score_value) + " little rascals", True, (0, 0, 0))
     pygame.draw.rect(screen, (255, 255, 255), (150, 250, 400, 250))
     screen.blit(game_over_text, (250, 300))
-    screen.blit(kill_count, (175, 400) )
+    screen.blit(kill_count, (175, 400))
+
 
 # MAIN LOOP
 running = True
@@ -147,7 +149,6 @@ while running:
             for j in range(enemy_amount):
                 enemyY[j] = 2000
             if not music_playing:
-
                 pygame.mixer.music.play(-1)
                 music_playing = True
             game_over()
